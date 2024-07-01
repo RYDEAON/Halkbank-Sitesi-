@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hakkımızda - Türkiye Halk Bankası</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* Genel stil ayarları */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Sayfanın yüksekliği minimum 100vh olacak */
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        header {
+            background-color: #003366;
+            color: #ffffff;
+            padding: 10px 0;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            width: 150px;
+            height: auto;
+        }
+
+        nav {
+            display: flex;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        /* Hero bölümü stili */
+        .hero {
+            background-color: #0070c0;
+            color: #ffffff;
+            padding: 60px 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        .hero h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        /* Hakkımızda bölümü stili */
+        .about {
+            background-color: #003366;
+            padding: 50px 0;
+            width: 100%;
+        }
+
+        .about h2 {
+            font-size: 2em;
+            color: #d9dbde;
+            margin-bottom: 20px;
+        }
+
+        .about-content {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 1.1em;
+            color: #003366;
+        }
+
+        .about-content ul li {
+            padding: 10px 0;
+        }
+
+        /* Yönetim Ekibi bölümü stili */
+        .team {
+            background-color: #f0f0f0;
+            padding: 50px 0;
+            width: 100%;
+        }
+
+        .team h2 {
+            font-size: 2em;
+            color: #003366;
+            margin-bottom: 30px;
+        }
+
+        .team-members {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .team-member {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 20px;
+            text-align: center;
+            width: 220px;
+        }
+
+        .team-member img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .team-member h3 {
+            margin: 10px 0 5px 0;
+            font-size: 1.2em;
+        }
+
+        .team-member p {
+            margin: 0;
+            font-size: 1em;
+            color: #0070c0;
+        }
+
+        /* Footer stili */
+        footer {
+            background-color: #003366;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+            margin-bottom: 10px;
+        }
+
+        .social-icons {
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            color: #ffffff;
+            font-size: 1.5em;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        .social-icons a:hover {
+            color: #0070c0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main bnr">
+        <div class="header inner">
+            <div class="bnr flx center prev">
+                <div class="logobox img flx center">
+                    <a href="index.html"><img src="logo.png"></a>
+                </div>
+                <div class="logoboxcent">
+                    <div class="frame flx">
+                        <form class="search-form flx center">
+                            <input type="submit" value="" />
+                            <input class="textbox" type="text" name="ara" placeholder="Aramanızı buradan yapabilirsiniz..." onclick="this.value='';"/>
+                        </form>
+                    </div>
+                </div>
+                <div class="logobox flx center">
+                    <div class="urun flx">
+                        <a href="#"><img class="icon" src="urun.svg"/></a>
+                        <a href="#" class="yazi flx center">Ürün ve Hizmet Ücretleri</a>
+                    </div>
+                    <a href="#" class="en">EN</a>
+                    <div class="alarm"><img src="bell-regular.svg"/></div>
+                </div>
+            </div>
+            <div class="menu flx center prev bnr">
+                <div class="menu1 sol">
+                <a href="index.html">Ana Sayfa</a> 
+                <a href="hakkimizda.html" >Hakkımızda</a>  
+                <a href="hizmetler.html">Hizmetler</a>  
+                <a href="iletisim.html">iletişim</a>   
+                <a href="giris.html">Giriş</a>  
+                </div>
+                <div class="button flx center"><a href="#"><input class="button1" type="button" name="internet" value="İnternet Şubesi"></a></div>
+            </div>
+        </div>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Hakkımızda</h1>
+                <p>Türkiye Halk Bankası'nın vizyonu, misyonu ve değerleri hakkında bilgi edinin.</p>
+            </div>
+        </section>
+
+        <section class="about">
+            <div class="container">
+                <div class="about-content">
+                    <h2>Vizyonumuz</h2>
+                    <p>Türkiye Halk Bankası olarak, müşterilerimize güvenilir ve yenilikçi finansal hizmetler sunarak
+                        ülke ekonomisine katkıda bulunmayı hedefliyoruz. Amacımız, sektörde lider bir banka olmak ve
+                        müşteri memnuniyetini en üst düzeyde sağlamaktır.</p>
+                </div>
+                <div class="about-content">
+                    <h2>Misyonumuz</h2>
+                    <p>Müşterilerimize kaliteli bankacılık hizmetleri sunarak, onların finansal hedeflerine ulaşmalarına
+                        yardımcı olmayı misyonumuz olarak belirliyoruz. Güvenilir, etkili ve sürdürülebilir çözümler
+                        sunarak toplumsal ve ekonomik kalkınmaya katkıda bulunuyoruz.</p>
+                </div>
+                <div class="about-content">
+                    <h2>Değerlerimiz</h2>
+                    <ul>
+                        <li>Güvenilirlik</li>
+                        <li>Yenilikçilik</li>
+                        <li>Şeffaflık</li>
+                        <li>Müşteri Odaklılık</li>
+                        <li>Sürdürülebilirlik</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="team">
+            <div class="container">
+                <h2>Yönetim Ekibimiz</h2>
+                <div class="team-members">
+                    <div class="team-member">
+                        <img src="resimm/ceo.jpeg" alt="Yönetici 1">
+                        <h3>Ahmet Yılmaz</h3>
+                        <p>Genel Müdür</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="resimm/ceo2.jpeg" alt="Yönetici 2">
+                        <h3>Ayşe Demir</h3>
+                        <p>Finans Direktörü</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="resimm/ceo3.png" alt="Yönetici 3">
+                        <h3>Mehmet Çelik</h3>
+                        <p>Operasyon Müdürü</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="resimm/ceo4.jpeg" alt="Yönetici 4">
+                        <h3>Fatma Yurt</h3>
+                        <p>Pazarlama Müdürü</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2024 Türkiye Halk Bankası. Tüm hakları saklıdır.</p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/halkbank" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com/halkbank" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/halkbank" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/halkbank" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.youtube.com/user/Halkbank" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

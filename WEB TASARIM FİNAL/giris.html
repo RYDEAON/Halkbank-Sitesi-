@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Türkiye Halk Bankası - Müşteri Giriş</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> <!-- Font Awesome CSS -->
+    <style>
+        /* Genel stil ayarları */
+        body {
+            font-family: Arial, sans-serif;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Sayfanın yüksekliği minimum 100vh olacak */
+            background-color: #f0f0f0; /* Arka plan rengini açık gri yapabiliriz */
+        }
+
+        /* Navbar stilleri */
+        .navbar {
+            background-color: #003366;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar h1 {
+            margin: 0;
+            font-size: 1.5em;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 1em;
+        }
+
+        .navbar .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        .navbar .logo-container img {
+            width: 120px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden; /* Taşma durumlarını engeller */
+            z-index: -2; /* Arka plan resmini formun ve navbar’ın arkasına yerleştirir */
+        }
+
+        .background-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Resmi kapsayıcıya uygun şekilde ölçeklendirir */
+            object-position: center; /* Resmi merkezde konumlandırır */
+        }
+
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.9); /* Yarı saydam beyaz arka plan */
+            color: #333;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            box-sizing: border-box;
+            position: absolute; /* Ekranın sağ tarafında konumlandırılabilmesi için */
+            right: 300px; /* Ekranın sağından 300px uzaklıkta */
+            top: 50%; /* Ekranın ortasına yerleştirilmesi için */
+            transform: translateY(-50%); /* Üstten 50% kaydırarak ortalamak için */
+        }
+
+        .login-container h1 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #003366;
+            text-align: center;
+        }
+
+        .login-container p {
+            font-size: 1em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .login-form label {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .login-form input[type="text"],
+        .login-form input[type="password"] {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            box-sizing: border-box;
+        }
+
+        .login-form button {
+            padding: 10px;
+            background-color: #003366;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        .login-form button:hover {
+            background-color: #002244;
+        }
+
+        .login-form .forgot-password {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .login-form .forgot-password a {
+            color: #003366;
+            text-decoration: none;
+        }
+
+        .login-form .forgot-password a:hover {
+            text-decoration: underline;
+        }
+
+        /* Sol tarafta saydam bölge */
+        .info-box {
+            position: absolute;
+            top: 50%;
+            left: 50px; /* Sol bölge genişliği */
+            width: 300px; /* Sol bölge genişliği */
+            background-color: rgba(255, 255, 255, 0); /* Tamamen şeffaf arka plan */
+            color: #fff;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transform: translateY(-50%); /* Ortalamak için */
+        }
+
+        .info-box h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .info-box p {
+            font-size: 1em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .info-box a {
+            display: block;
+            padding: 10px;
+            background-color: #003366;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .info-box a:hover {
+            background-color: #002244;
+        }
+
+        /* Footer */
+       
+
+        .social-icons {
+            margin: 20px 0;
+        }
+
+        .social-icons a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 1.5em;
+        }
+
+        .social-icons a:hover {
+            color: #ffcc00; /* Sosyal medya simgelerine üzerine gelindiğinde sarı renk */
+        }
+
+        /* Responsive tasarım */
+        @media (max-width: 768px) {
+            .login-container {
+                right: 20px;
+                width: calc(100% - 40px); /* Mobilde genişlik ayarı */
+            }
+
+            .info-box {
+                left: 20px;
+                width: calc(100% - 40px); /* Mobilde genişlik ayarı */
+            }
+        }
+    </style>
+</head>
+
+    <body>
+        <div class="main bnr">
+            <div class="header inner">
+                <div class="bnr flx center prev">
+                    <div class="logobox img flx center">
+                        <a href="index.html"><img src="logo.png"></a>
+                    </div>
+                    <div class="logoboxcent">
+                        <div class="frame flx">
+                            <form class="search-form flx center">
+                                <input type="submit" value="" />
+                                <input class="textbox" type="text" name="ara" placeholder="Aramanızı buradan yapabilirsiniz..." onclick="this.value='';"/>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="logobox flx center">
+                        <div class="urun flx">
+                            <a href="#"><img class="icon" src="urun.svg"/></a>
+                            <a href="#" class="yazi flx center">Ürün ve Hizmet Ücretleri</a>
+                        </div>
+                        <a href="#" class="en">EN</a>
+                        <div class="alarm"><img src="bell-regular.svg"/></div>
+                    </div>
+                </div>
+                <div class="menu flx center prev bnr">
+                    <div class="menu1 sol">
+                    <a href="index.html">Ana Sayfa</a> 
+                    <a href="hakkimizda.html" >Hakkımızda</a>  
+                    <a href="hizmetler.html">Hizmetler</a>  
+                    <a href="iletisim.html">iletişim</a>   
+                    <a href="giris.html">Giriş</a>  
+                    </div>
+                    <div class="button flx center"><a href="#"><input class="button1" type="button" name="internet" value="İnternet Şubesi"></a></div>
+                </div>
+            </div>
+
+    <!-- Arka Plan Resmi -->
+    <div class="background-image">
+        <img src="resimm/SergiArifUNSALIstanbulBogaz_20170405162105574.jpg" alt="Arka Plan">
+    </div>
+
+    <!-- Sol Taraf: Güvenlik Bilgileri ve Buton -->
+    <div class="info-box">
+        <h2>Güvenliğiniz İçin</h2>
+        <p>Halkbank İnternet Şubesi girişlerinde; cep telefonu numarası, marka ve modeli bilgileriniz istenmez.<br><br>
+            Güvenliğiniz için dikkat ediniz:<br>
+            Bankamız adına açılan e-posta adresleri <span>xxxx@halkbank.com.tr</span> şeklindedir.</p>
+        <a href="#">Güvenlik Bilgilerini Oku</a>
+    </div>
+
+    <!-- Giriş Formu -->
+    <div class="login-container">
+        <h1>İnternet Şubesi Girişi</h1>
+        <p>Lütfen kullanıcı adınızı ve şifrenizi girin.</p>
+        <form class="login-form">
+            <label for="username">Kullanıcı Adı</label>
+            <input type="text" id="username" name="username" placeholder="Kullanıcı Adınızı Girin" required>
+            <label for="password">Şifre</label>
+            <input type="password" id="password" name="password" placeholder="Şifrenizi Girin" required>
+            <button type="submit">Giriş Yap</button>
+            <div class="forgot-password">
+                <a href="#">Şifremi Unuttum</a>
+            </div>
+        </form>
+    </div>
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Türkiye Halk Bankası. Tüm Hakları Saklıdır.</p>
+        <p><a href="kisiselveribilgi.html">Kişisel Verilerin Korunması</a> | <a href="guvenlikbilgileri.html">Güvenlik Bilgileri</a> | <a href="iletişim.html">İletişim</a></p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/halkbank" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com/halkbank" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/halkbank" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/company/halkbank" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </footer>
+
+   
+</body>
+</html>
